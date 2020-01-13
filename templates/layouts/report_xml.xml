@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report>
+    <organization>{{ report_data.organization }}</organization>
+    <created_date>{{ report_data.created_date }}</created_date>
+    <report_date>{{ report_data.report_date }}</report_date>
+   {% for val in values %}
+    <inventory>
+        <item>
+
+        </item>
+    </inventory>
+    {% endfor %}
+</report>
+
+
