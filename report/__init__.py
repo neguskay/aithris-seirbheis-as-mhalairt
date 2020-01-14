@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, Blueprint, redirect, url_for, make_response
+from flask import Flask, render_template, request, Blueprint, redirect, url_for, make_response, abort
 # from flask.ext.sqlalchemy import SQLAlchemy
 from logging import Formatter, FileHandler
 from forms import *
@@ -20,12 +20,13 @@ def reports_list():
 
 @report.route("/<report_id>", methods=["GET"])
 def report_details(report_id):
-    report_dict = {
-        "name": "Report One",
-        "id": report_id,
-        "description": "Report one is the report for the financial year one to one."
-    }
-    return render_template("pages/report.html", report=report_dict)
+    report_data = session.query(Local_Reports).filter_by(id=report_id).first()
+
+    if report_data is not None:
+        return render_template("pages/report.html", report=report_data)
+
+    else:
+        abort(404)
 
 
 @report.route("/generate", methods=["GET"])
