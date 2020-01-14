@@ -77,8 +77,8 @@ Project Structure
 
 1. Clone the repo
   ```
-  $ git clone https://github.com/realpython/aithris-seirbheis-as-mhalairt.git
-  $ cd flask-boilerplate
+  $ git clone https://github.com/neguskay/aithris-seirbheis-as-mhalairt.git
+  $ cd aithris-seirbheis-as-mhalairt
   ```
 
 2. Initialize and activate a virtualenv:
