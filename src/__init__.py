@@ -28,6 +28,9 @@ def create_app(test_config=None):
     except OSError:
         pass
 
+    from src.report import report
+    app.register_blueprint(report, url_prefix="/reports")
+
     @app.route('/')
     def home():
         return render_template('pages/placeholder.home.html')
@@ -55,11 +58,6 @@ def create_app(test_config=None):
         app.logger.addHandler(file_handler)
         app.logger.info('errors')
 
-    # import blog
-    # import auth
-    from report import report
-
-    app.register_blueprint(report, url_prefix="/reports")
 
     return app
 
@@ -67,5 +65,5 @@ def create_app(test_config=None):
 # Default port:
 if __name__ == '__main__':
     app = create_app()
-    app.run()
+    app.run(debug=True)
 

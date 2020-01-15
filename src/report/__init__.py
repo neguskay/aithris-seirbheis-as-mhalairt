@@ -1,8 +1,7 @@
 from flask import render_template, request, Blueprint, redirect, url_for, make_response, abort
-# from flask.ext.sqlalchemy import SQLAlchemy
 import pdfkit
 
-from old.models import Local_Reports, session
+from src.models import Local_Reports, session
 
 report = Blueprint("reports", __name__)
 
