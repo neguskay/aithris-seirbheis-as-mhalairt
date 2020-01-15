@@ -1,12 +1,8 @@
-from flask import Flask, render_template, request, Blueprint, redirect, url_for, make_response, abort
+from flask import render_template, request, Blueprint, redirect, url_for, make_response, abort
 # from flask.ext.sqlalchemy import SQLAlchemy
-from logging import Formatter, FileHandler
-from forms import *
-import json
-import logging
 import pdfkit
 
-from models import Local_Reports, session
+from old.models import Local_Reports, session
 
 report = Blueprint("reports", __name__)
 

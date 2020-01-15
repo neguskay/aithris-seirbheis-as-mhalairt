@@ -1,4 +1,6 @@
 *.pyc
 .DS_Store
 env
-venv
+/venv
+/tests/.pytest_cache
+/tests/error.log
