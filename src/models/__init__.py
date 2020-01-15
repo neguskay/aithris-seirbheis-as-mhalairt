@@ -3,7 +3,9 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 import json
 
-
+"""
+   Set up DB connection with Post-gres and instantiate a session
+"""
 db_url_string = "postgres+psycopg2://interview:uo4uu3AeF3@candidate.suade.org/suade"
 engine = create_engine(db_url_string, echo=True)
 # meta_data = MetaData(engine)
@@ -16,6 +18,11 @@ session = Session()
 
 
 class Local_Reports(Base):
+    """
+       Local Report model
+       Retrieves each report from db as with <id> and <type>.
+       Converts/translates type into the appropriate properties for easy use of the model.
+    """
     __tablename__ = 'reports'
 
     id = Column(Integer, primary_key=True)

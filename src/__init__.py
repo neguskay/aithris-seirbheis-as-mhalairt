@@ -33,19 +33,31 @@ def create_app(test_config=None):
 
     @app.route('/')
     def home():
+        """
+            Route: Index/Home
+        """
         return render_template('pages/placeholder.home.html')
 
     @app.route('/about')
     def about():
+        """
+            Route: About Page.
+        """
         return render_template('pages/placeholder.about.html')
 
     @app.errorhandler(500)
     def internal_error(error):
+        """
+            Return this page if Internal Server Error.
+        """
         # db_session.rollback()
         return render_template('errors/500.html'), 500
 
     @app.errorhandler(404)
     def not_found_error(error):
+        """
+            Return this page if Not Found Error.
+        """
         return render_template('errors/404.html'), 404
 
     if not app.debug:

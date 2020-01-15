@@ -8,6 +8,9 @@ report = Blueprint("reports", __name__)
 
 @report.route("/", methods=["GET"])
 def reports_list():
+    """
+        Route: Retrieves all report details on a page.
+    """
     reports_db_list = session.query(Local_Reports).all()
 
     return render_template("pages/reports.html", reports_db_list=reports_db_list)
@@ -15,6 +18,10 @@ def reports_list():
 
 @report.route("/<report_id>", methods=["GET"])
 def report_details(report_id):
+    """
+        Route: Retrieves individual report details on a page.
+        :arg report_id PK id if the report.
+    """
     report_data = session.query(Local_Reports).filter_by(id=report_id).first()
 
     if report_data is not None:
@@ -26,6 +33,11 @@ def report_details(report_id):
 
 @report.route("/generate", methods=["GET"])
 def generate():
+    """
+       Route: Generates PDF or XML of a report upon receipt of request.
+       :arg report_id PK id if the report.
+       :arg output_type str pdf or xml.
+    """
     response = None
     rendered_certificate = None
 
